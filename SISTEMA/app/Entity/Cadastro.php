@@ -1,12 +1,12 @@
 <?php
 
-require './Produtos.php';
+require 'Produtos.php';
 $dados = new Produtos('','','');
 $produto_banco = $dados->buscar();
 
 if(isset($_POST['cadastrar'])){
     $nome = $_POST['nome'];
-    $produto = $_POST['preco'];
+    $preco = $_POST['preco'];
   
 
     $produto = new Produtos($nome,$preco);
@@ -53,9 +53,10 @@ if(isset($_POST['cadastrar'])){
             <td>' .$produto['id'].' </td>
             <td>'.$produto['nome'].' </td>
             <td>' .$produto['preco'].' </td>
-            <td> <a href="editar.php?id=' .$produto['id'] .'"> Editar</a> </td>
-            <td> <a href="excluir.php?id=' .$produto['id'] .'"> Excluir</a> </td>
-           
+            <td> <a href="Editar.php?id=' .$produto['id'] .'"> Editar</a> </td>
+            <td> <a href="app/Entity/delete_pedido.php?id=<?php echo $produto['id']; ?>"> Excluir</a> </td>
+
+                
         </tr>';
       }
 

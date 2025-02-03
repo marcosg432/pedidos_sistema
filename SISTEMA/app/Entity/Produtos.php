@@ -1,6 +1,7 @@
 <?php
 
-require '../../DB/Database.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/meu_sistema/SISTEMA/DB/Database.php';
+
 
 class Produtos{
     public int $id;
@@ -12,8 +13,9 @@ class Produtos{
 
         $result =$db->insert(
             [
-                'nome'=>$this->nome,
-                'preco'=>$this->preco
+                'nome' => $this->nome,
+                'preco' => $this->preco,
+
             ]
             );
             if($result){
@@ -39,11 +41,12 @@ class Produtos{
         return (new Database('produtos'))->select('id='. $id)->fetchobject(self::class);
     }
 
-    public function excluir($id){
-        return (new Database('produtos'))->delete('id = ' .$id);
-
-    
+    public function excluir($id) {
+        $db = new Database('produtos'); 
+        return $db->delete('id = ' . $id); 
     }
+    
+    
 
 
 }

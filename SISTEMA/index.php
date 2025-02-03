@@ -1,10 +1,15 @@
 <?php
-require './app/Entity/Produtos.php';
+require './app/Entity/Cadastro.php';
 
-$nome = "x-tudo";
-$preco = "R$30.00";
 
-$prod = new Produtos($nome,$preco);
+$prod = new Produtos();
+$nome = "x-burguer";
+$preco = 15.00;
+
+$prod->nome = $nome;
+$prod->preco = $preco;
+
+
 
 // CHAMA O METODO PARA CADASTRAR O PRODUTO
 $prod->cadastrar();
